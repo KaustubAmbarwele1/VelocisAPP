@@ -1,0 +1,44 @@
+<div class="container mt-4 ">
+    <div class="card m-2 p-2">
+            <h1>User Course Registation</h1>
+    
+    <form>
+        <div class="form-group">
+          <label>User's Name</label>
+          <input type="text" [(ngModel)]="username" [ngModelOptions]="{standalone: true}" class="form-control" id="username" placeholder="Enter Name">
+        </div>
+    
+        <div class="form-group">
+          <label>Course</label>
+          <input type="text" [(ngModel)]="course" [ngModelOptions]="{standalone: true}" class="form-control" id="course" placeholder="Enter Name">
+        </div>
+    
+        <button type="submit" class="btn btn-primary mt-4" (click)="save()" >Save</button>
+      
+      </form>
+    </div>
+ 
+        <div class="container mt-4" >
+            <h1>User Table</h1>
+        <table class="table">
+            <thead>
+             <h1 *ngIf="!isResultLoaded">Loading.................</h1>      
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">User Name</th>
+                <th scope="col">Course</th>  
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of UserArray">
+                    <td>{{item.id  }}</td>
+                <td>{{item.username }}</td>
+                <td>{{item.course }}</td>
+                <td>
+                  <button type="button" class="btn btn-success" (click)="setUpdate(item)">Edit</button>
+                  <button type="button" class="btn btn-danger mx-1" (click)="setDelete(item)">Delete</button>            
+                </td>
+              </tr>          
+            </tbody>
+          </table>
+        </div>
